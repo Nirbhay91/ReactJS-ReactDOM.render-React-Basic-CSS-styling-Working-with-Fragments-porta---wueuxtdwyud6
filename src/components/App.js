@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/App.css";
 import Selection from "./Selection";
 import ColourSelector from "./ColourSelector";
@@ -27,10 +27,14 @@ const colourConfig = [
 const title = "Select the gradient and then the Box to change the color";
 
 const App = () => {
-  let [nextBackground, selectNextBackground] = useState({ background: "" });
+  let [nextBackground, selectNextBackground] = useState({nextBackground:''});
   const applyColor = (updateSelectionStyle) => {
     updateSelectionStyle(nextBackground);
   };
+
+  useEffect(()=>{
+    console.log(nextBackground)
+  },[nextBackground])
 
   return (
     <div id="master">
