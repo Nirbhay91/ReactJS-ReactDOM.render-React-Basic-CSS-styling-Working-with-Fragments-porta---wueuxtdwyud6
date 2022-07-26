@@ -1,18 +1,14 @@
-import React, { useState } from "react";
-
-import "../styles/Child.css";
-
-export default function Selection({ applyColor }) {
-  const [color, setColor] = useState({ background: "" });
-
-  function handleClick() {
-    applyColor(setColor);
-    console.log("done");
-  }
-
+import React, {useState} from 'react'
+// import '../styles/App.css';
+function Selection({applyColor}) {
+  const [state,setState] = useState({background:''});
   return (
-    <div className="flex-box" style={color} onClick={handleClick}>
-      <h2 className="subheding"> Selection </h2>
+    <div onClick={()=>{
+      applyColor(setState);
+    }} style={{backgroundColor: `${state.background}`}} className='fix-box'>
+      <h2 className='subheading'>Selection</h2>
     </div>
-  );
+  )
 }
+
+export default Selection
